@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PackageId>PigTracks.Sensors</PackageId>
+        <PackageVersion>2.0.4</PackageVersion>
+        <Description>Client library to send data to PigTracks Sensors.</Description>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/PigTracks/pigtracks-sensors-dotnet</RepositoryUrl>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="GraphQL.Client" Version="5.1.1" />
+        <PackageReference Include="GraphQL.Client.Serializer.SystemTextJson" Version="5.1.1" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+    </ItemGroup>
+</Project>
