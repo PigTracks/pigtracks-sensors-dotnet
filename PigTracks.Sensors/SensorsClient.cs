@@ -11,6 +11,7 @@ public interface ISensorsClient
 {
     Task UpdateSensor(Sensor sensor);
     Task AddSensorData(string vendorId, string deviceId, IList<SensorDataPoint> sensorDataPoints);
+    Task AddSensorEvent(string vendorId, string deviceId, SensorEvent sensorEvent);
 }
 
 public class SensorsClient : ISensorsClient
