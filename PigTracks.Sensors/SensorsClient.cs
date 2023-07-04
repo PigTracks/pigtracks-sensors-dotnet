@@ -86,4 +86,31 @@ public class SensorsClient : ISensorsClient
         };
         await _graphQlClient.SendMutationAsync<object>(addSensorDataGraphQlRequest);
     }
+
+    public async Task AddSensorEvent(string vendorId, string deviceId, SensorEvent sensorEvent)
+    {
+        var addSensorEventGraphQlRequest = new GraphQLRequest
+        {
+            Query = @"
+                mutation AddSensorEvent($input: AddSensorEventInput!) {
+                    sensors {
+                        addEvent(input: $input) {
+                            message
+                        }
+                    }
+                }
+            ",
+            OperationName = "AddSensorEvent",
+            Variables = new
+            {
+                input = new
+                {
+                    vendorId,
+                    deviceId,
+                    sensorEvent
+                }
+            }
+        };
+        await _graphQlClient.SendMutationAsync<object>(addSensorEventGraphQlRequest);
+    }
 }
