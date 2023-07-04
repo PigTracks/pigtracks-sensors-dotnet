@@ -4,7 +4,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>PigTracks.Sensors</PackageId>
-        <PackageVersion>2.1.1</PackageVersion>
+        <PackageVersion>2.2.0</PackageVersion>
         <Description>Client library to send data to PigTracks Sensors.</Description>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/PigTracks/pigtracks-sensors-dotnet</RepositoryUrl>

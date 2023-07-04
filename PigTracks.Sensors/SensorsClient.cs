@@ -11,7 +11,7 @@ public interface ISensorsClient
 {
     Task UpdateSensor(Sensor sensor);
     Task AddSensorData(string vendorId, string deviceId, IList<SensorDataPoint> sensorDataPoints);
-    Task AddSensorEvent(string vendorId, string deviceId, SensorEvent sensorEvent);
+    Task AddSensorEvent(SensorEvent sensorEvent);
 }
 
 public class SensorsClient : ISensorsClient
@@ -88,7 +88,7 @@ public class SensorsClient : ISensorsClient
         await _graphQlClient.SendMutationAsync<object>(addSensorDataGraphQlRequest);
     }
 
-    public async Task AddSensorEvent(string vendorId, string deviceId, SensorEvent sensorEvent)
+    public async Task AddSensorEvent(SensorEvent sensorEvent)
     {
         var addSensorEventGraphQlRequest = new GraphQLRequest
         {
@@ -104,12 +104,7 @@ public class SensorsClient : ISensorsClient
             OperationName = "AddSensorEvent",
             Variables = new
             {
-                input = new
-                {
-                    vendorId,
-                    deviceId,
-                    sensorEvent
-                }
+                input = sensorEvent
             }
         };
         await _graphQlClient.SendMutationAsync<object>(addSensorEventGraphQlRequest);
